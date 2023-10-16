@@ -1,1 +1,2 @@
 Hello World!
+Nowa linia z fixa
