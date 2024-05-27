@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <string.h>
+
+#define NAME_SIZE 50
+
+// Definicja struktury Student
+struct Student {
+    char name[NAME_SIZE];
+    int grade;
+};
+
+// Funkcja, która zwraca najwyższą ocenę w tablicy Student
+int getHighestGrade(struct Student students[], int size) {
+    int highestGrade = students[0].grade;
+    for (int i = 1; i < size; i++) {
+        if (students[i].grade > highestGrade) {
+            highestGrade = students[i].grade;
+        }
+    }
+    return highestGrade;
+}
+
+int main() {
+    // Tworzenie tablicy struktur Student
+    struct Student students[] = {
+        {"Alice", 85},
+        {"Bob", 92},
+        {"Charlie", 78},
+        {"David", 90},
+        {"Eve", 88}
+    };
+    
+    int size = sizeof(students) / sizeof(students[0]);
+    
+    // Wywołanie funkcji i wyświetlenie najwyższej oceny
+    int highestGrade = getHighestGrade(students, size);
+    printf("Najwyższa ocena: %d\n", highestGrade);
+    
+    return 0;
+}
